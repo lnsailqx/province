@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript"  src="jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<form>
+	<form class="reginform" name="regform"  method="post" action="../php/register.php">
+					<input type="text" class="inputtext" id="id" placeholder="ID" name="ID">
+					<input type="text" class="inputtext" id="is" placeholder="is" name="index">
+					<input type="button" id="regsub" class="regsub" value="注册" onclick="javascript:;">
+	</form>
+	<script type="text/javascript">
+	 $(function(){ 
+
+            //异步提交表单  
+            $("#regsub").on("click",function(){ 
+                var id=$("#id").val();
+                var is=$("#is").val();
+               
+               $.ajax({
+					url:'php/search.php',
+					method:'post',
+					data:{
+						id:id,
+						is:is
+
+					},
+					success:function(result){
+						alert(result);
+						
+						}
+
+
+					
+				});  
+            
+            });
+
+
+
+        }); 
+	 </script>
+
+</body>
+</html>
